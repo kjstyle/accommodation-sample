@@ -1,6 +1,8 @@
 package kjstyle.accommodation.domain.repository.entities;
 
 import jakarta.persistence.*;
+import kjstyle.accommodation.domain.enums.AccommodationType;
+import kjstyle.accommodation.domain.enums.ParkingType;
 import lombok.Getter;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -24,12 +26,18 @@ public class AccommodationEntity {
     private double latitude;
     private double longitude;
 
-    @Column(nullable = false, length = 10)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private AccommodationType type;
 
+    @Column(nullable = true)
     private boolean isFreeParking;
-    private String parkingType;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private ParkingType parkingType;
+
+    @Column(nullable = true)
     private String locationGuideText;
 
     @Column(nullable = false)
