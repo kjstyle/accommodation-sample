@@ -15,13 +15,23 @@ public class AccommodationEntity {
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String name;
+
+    @Column(nullable = false, length = 1000)
     private String description;
+
     private double latitude;
     private double longitude;
+
+    @Column(nullable = false, length = 10)
     private String type;
+
     private boolean isFreeParking;
     private String parkingType;
+
     private String locationGuideText;
+
+    @Column(nullable = false)
     private long imageNo;
 }
