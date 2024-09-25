@@ -17,5 +17,4 @@ class AccommodationRepositoryTest extends BaseJpaTest {
         AccommodationEntity entity = accommodationRepository.findById(1L).orElseThrow(NotFoundAccommodationException::new);
         Assertions.assertEquals("서울 호텔", entity.getName());
     }
-
 }

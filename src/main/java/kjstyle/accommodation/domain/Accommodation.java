@@ -3,6 +3,7 @@ package kjstyle.accommodation.domain;
 import kjstyle.accommodation.domain.enums.AccommodationStatus;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
+import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +22,7 @@ public class Accommodation {
     private String locationGuideText;
     private String mainImagePath;
 
-    public static Accommodation from(AccommodationEntity entity) {
+    public static Accommodation of(AccommodationEntity entity, ImageEntity mainImageEntity) {
         return Accommodation.builder()
                 .id(entity.getId())
                 .name(entity.getName())
@@ -30,7 +31,7 @@ public class Accommodation {
                 .type(entity.getType())
                 .parkingInfo(new ParkingInfo(entity.isFreeParking(), entity.getParkingType()))
                 .locationGuideText(entity.getLocationGuideText())
-                .mainImagePath("하드코딩패스")
+                .mainImagePath(mainImageEntity.getPath())
                 .build();
     }
 }
