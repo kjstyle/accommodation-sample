@@ -1,4 +1,4 @@
-package kjstyle.accommodation;
+package kjstyle.accommodation.domain.repository.common;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package kjstyle.accommodation;
+package kjstyle.accommodation.domain.repository.common;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;

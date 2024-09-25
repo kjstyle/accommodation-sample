@@ -1,7 +1,7 @@
 package kjstyle.accommodation.domain.service;
 
 import kjstyle.accommodation.domain.Accommodation;
-import kjstyle.accommodation.domain.exceptions.NotFoundSuchAccommodationException;
+import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.repository.AccommodationRepository;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ public class AccommodationService {
     @Transactional(readOnly = true)
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(
-                NotFoundSuchAccommodationException::new
+                NotFoundAccommodationException::new
         );
         return Accommodation.from(accommodationEntity);
     }
