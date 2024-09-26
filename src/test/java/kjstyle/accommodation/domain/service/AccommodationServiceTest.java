@@ -8,14 +8,15 @@ import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.enums.ParkingType;
 import kjstyle.accommodation.domain.repository.common.BaseTest;
-import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 class AccommodationServiceTest extends BaseTest {
 
     @Autowired

@@ -2,23 +2,23 @@ package kjstyle.accommodation.web.validators;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import kjstyle.accommodation.domain.AccommodationImage;
+import kjstyle.accommodation.web.dto.AccommodationReq;
 
 import java.util.List;
 
-public class AccommodationImageValidator implements ConstraintValidator<ValidAccommodationImage, List<AccommodationImage>> {
+public class AccommodationImageValidator implements ConstraintValidator<ValidAccommodationImage, List<AccommodationReq.ImageOnCreate>> {
     @Override
     public void initialize(ValidAccommodationImage constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(List<AccommodationImage> imageList, ConstraintValidatorContext context) {
+    public boolean isValid(List<AccommodationReq.ImageOnCreate> imageList, ConstraintValidatorContext context) {
         if (imageList == null || imageList.isEmpty()) {
             return false;
         }
-        for (AccommodationImage accommodationImage : imageList) {
-            if (accommodationImage.getId() == null || accommodationImage.getImageType() == null || accommodationImage.getPath() == null) {
+        for (AccommodationReq.ImageOnCreate image : imageList) {
+            if (image.getImageType() == null || image.getPath() == null) {
                 return false;
             }
         }

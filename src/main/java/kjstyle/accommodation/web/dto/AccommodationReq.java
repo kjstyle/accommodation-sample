@@ -39,6 +39,8 @@ public class AccommodationReq {
 
         private String locationGuideText;
 
+        @NotNull
+        @ValidAccommodationImage
         private List<ImageOnCreate> imageList;
 
         @Builder
@@ -55,8 +57,14 @@ public class AccommodationReq {
     }
 
     @Getter
-    public class ImageOnCreate {
+    public static class ImageOnCreate {
         private ImageType imageType;
         private String path;
+
+        @Builder
+        public ImageOnCreate(ImageType imageType, String path) {
+            this.imageType = imageType;
+            this.path = path;
+        }
     }
 }

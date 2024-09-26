@@ -7,10 +7,11 @@ import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@Transactional
 class ImageRepositoryTest extends BaseJpaTest {
     @Autowired
     private ImageRepository imageRepository;
