@@ -2,13 +2,19 @@ package kjstyle.accommodation.domain.repository.entities;
 
 import jakarta.persistence.*;
 import kjstyle.accommodation.domain.enums.ImageType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name = "image")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

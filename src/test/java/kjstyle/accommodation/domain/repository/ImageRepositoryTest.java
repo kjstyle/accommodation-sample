@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 class ImageRepositoryTest extends BaseJpaTest {
     @Autowired
@@ -18,5 +19,17 @@ class ImageRepositoryTest extends BaseJpaTest {
     void 메인이미지조회() throws Exception {
         ImageEntity imageEntity = imageRepository.findByAccommodationIdAndImageType(1L, ImageType.MAIN).orElseThrow(NotFoundImageException::new);
         Assertions.assertNotNull(imageEntity);
+        assertThat(imageEntity).isNotNull();
+    }
+
+    @Test
+    void 이미지저장테스트() throws Exception {
+        ImageEntity imageEntity = ImageEntity.builder()
+                .accommodationId(1L)
+                .path("/img/test/123.jpg")
+                .imageType(ImageType.MAIN)
+                .build();
+        ImageEntity saved = imageRepository.save(imageEntity);
+        assertThat(saved.getPath()).isEqualTo(imageEntity.getPath());
     }
 }
