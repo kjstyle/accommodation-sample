@@ -19,6 +19,11 @@ public class ApiExceptionAdvice {
         return new ResponseEntity<>(new ErrorResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleException(IllegalArgumentException e) {
+        return new ResponseEntity<>(new ErrorResponse(e.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(NotFoundAccommodationException.class)
     public ResponseEntity<ErrorResponse> handleException(NotFoundAccommodationException e) {
         return new ResponseEntity<>(new ErrorResponse("숙소를 찾을 수 없습니다"), HttpStatus.BAD_REQUEST);
