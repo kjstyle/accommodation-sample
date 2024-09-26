@@ -1,12 +1,12 @@
 package kjstyle.accommodation.web;
 
+import jakarta.validation.Valid;
 import kjstyle.accommodation.domain.Accommodation;
 import kjstyle.accommodation.domain.service.AccommodationService;
+import kjstyle.accommodation.web.dto.AccommodationReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -18,5 +18,11 @@ public class AccommodationRestController extends BaseApiController {
     @GetMapping("/accommodation/{id}")
     public Accommodation getAccommodationById(@PathVariable Long id) {
         return accommodationService.findById(id);
+    }
+
+    @PostMapping("/accommodation")
+    public Accommodation createAccommodation(@RequestBody @Valid AccommodationReq.Create accommodationReqCreate) {
+        log.info("{}",accommodationReqCreate);
+        return null;
     }
 }
