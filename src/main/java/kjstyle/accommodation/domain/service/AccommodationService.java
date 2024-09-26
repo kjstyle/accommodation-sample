@@ -42,6 +42,7 @@ public class AccommodationService {
                 .map(accommodationImage -> accommodationImage.toSaveEntity(newAccommodationId))
                 .toList();
 
+        // TODO : 화면에서 이미지를 미리 등록하고, 이미지 key 리스트만 받고, 등록된 숙소 key만 update해주면 되지 싶은데.. 아래코드가 맘에 안든다...
         Iterable<ImageEntity> savedImageEntities = imageRepository.saveAll(imageEntities);
         String mainImagePath = StreamSupport.stream(savedImageEntities.spliterator(), false)
                 .filter(imageEntity -> imageEntity.getImageType().equals(ImageType.MAIN))
