@@ -2,29 +2,14 @@ INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text) VALUES ('부산 모텔', '부산 해운대 근처에 위치한 모텔로, 합리적인 가격에 숙박을 제공합니다.', 35.1587, 129.1603, 'MOTEL', 1, 'MACHINE', '해운대역에서 도보 10분 거리');
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text) VALUES ('제주 호텔', '제주 바다 전망을 자랑하는 호텔로, 여유로운 휴식을 위한 최적의 장소입니다.', 33.4996, 126.5312, 'HOTEL', 1, 'ETC', '제주공항에서 차로 15분 거리');
 
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('MAIN', 'images/accommodation1/main.jpg', 1);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('THUMBNAIL', 'images/accommodation1/thumbnail.jpg', 1);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('DETAIL', 'images/accommodation1/detail.jpg', 1);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('LOCATION', 'images/accommodation1/location.jpg', 1);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('MAIN', 'images/accommodation1/main.jpg', 2);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('THUMBNAIL', 'images/accommodation1/thumbnail.jpg', 2);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('DETAIL', 'images/accommodation1/detail.jpg', 2);
-
-INSERT INTO IMAGE (image_type, path, acmd_no)
-VALUES ('LOCATION', 'images/accommodation1/location.jpg', 2);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('MAIN', 'images/accommodation1/main.jpg', 1);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('THUMBNAIL', 'images/accommodation1/thumbnail.jpg', 1);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('DETAIL', 'images/accommodation1/detail.jpg', 1);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('LOCATION', 'images/accommodation1/location.jpg', 1);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('MAIN', 'images/accommodation1/main.jpg', 2);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('THUMBNAIL', 'images/accommodation1/thumbnail.jpg', 2);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('DETAIL', 'images/accommodation1/detail.jpg', 2);
+INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('LOCATION', 'images/accommodation1/location.jpg', 2);
 
 /*
     create table accommodation (

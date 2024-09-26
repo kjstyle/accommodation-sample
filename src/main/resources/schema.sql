@@ -12,7 +12,7 @@
 -- );
 
 
--- Accommodation table
+drop table if exists ACCOMMODATION CASCADE;
 CREATE TABLE ACCOMMODATION (
    acmd_no BIGINT AUTO_INCREMENT PRIMARY KEY,
    name VARCHAR(100) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE ACCOMMODATION (
    location_guide_text VARCHAR(255)
 );
 
--- Image table
+drop table if exists IMAGE CASCADE;
 CREATE TABLE IMAGE (
    image_no BIGINT AUTO_INCREMENT PRIMARY KEY,
    image_type VARCHAR(255) NOT NULL,

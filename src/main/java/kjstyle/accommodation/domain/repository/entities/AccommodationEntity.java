@@ -3,7 +3,10 @@ package kjstyle.accommodation.domain.repository.entities;
 import jakarta.persistence.*;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ParkingType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -13,6 +16,9 @@ import java.util.List;
 @Entity
 @Table(name = "ACCOMMODATION")
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class AccommodationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
