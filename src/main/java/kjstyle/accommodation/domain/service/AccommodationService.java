@@ -1,6 +1,7 @@
 package kjstyle.accommodation.domain.service;
 
 import kjstyle.accommodation.domain.Accommodation;
+import kjstyle.accommodation.domain.AccommodationImage;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.exceptions.NotFoundImageException;
@@ -12,6 +13,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Slf4j
 @Service
@@ -26,6 +33,24 @@ public class AccommodationService {
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(NotFoundAccommodationException::new);
         ImageEntity mainImageEntity = imageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);
-        return Accommodation.of(accommodationEntity, mainImageEntity);
+        return Accommodation.of(accommodationEntity, mainImageEntity.getPath());
+    }
+
+    @Transactional
+    public Accommodation save(Accommodation accommodation, List<AccommodationImage> imageList) {
+        AccommodationEntity savedAccommodationEntity = accommodationRepository.save(accommodation.toSaveEntity());
+        long newAccommodationId = savedAccommodationEntity.getId();
+
+        List<ImageEntity> imageEntities = imageList.stream()
+                .map(accommodationImage -> accommodationImage.toSaveEntity(newAccommodationId))
+                .toList();
+
+        Iterable<ImageEntity> savedImageEntities = imageRepository.saveAll(imageEntities);
+        String mainImagePath = StreamSupport.stream(savedImageEntities.spliterator(), false)
+                .filter(imageEntity -> imageEntity.getImageType().equals(ImageType.MAIN))
+                .map(ImageEntity::getPath)
+                .findFirst().orElse("");
+
+        return Accommodation.of(savedAccommodationEntity, mainImagePath);
     }
 }

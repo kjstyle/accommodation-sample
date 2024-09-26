@@ -18,7 +18,7 @@ import org.hibernate.type.SqlTypes;
 @Builder
 public class AccommodationEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "acmd_no", nullable = false)
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;

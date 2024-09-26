@@ -17,7 +17,7 @@ import org.hibernate.type.SqlTypes;
 @Builder
 public class ImageEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "image_no", nullable = false)
     @JdbcTypeCode(SqlTypes.BIGINT)
     private Long id;

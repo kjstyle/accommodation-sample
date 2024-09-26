@@ -7,6 +7,7 @@ import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
@@ -20,9 +21,11 @@ public class Accommodation {
     private AccommodationStatus status;
     private ParkingInfo parkingInfo;
     private String locationGuideText;
+
+    @Setter
     private String mainImagePath;
 
-    public static Accommodation of(AccommodationEntity entity, ImageEntity mainImageEntity) {
+    public static Accommodation of(AccommodationEntity entity, String mainImagePath) {
         return Accommodation.builder()
                 .id(entity.getId())
                 .name(entity.getName())
@@ -31,7 +34,21 @@ public class Accommodation {
                 .type(entity.getType())
                 .parkingInfo(new ParkingInfo(entity.isFreeParking(), entity.getParkingType()))
                 .locationGuideText(entity.getLocationGuideText())
-                .mainImagePath(mainImageEntity.getPath())
+                .mainImagePath(mainImagePath)
                 .build();
     }
+
+    public AccommodationEntity toSaveEntity() {
+        return AccommodationEntity.builder()
+                .name(this.name)
+                .description(this.description)
+                .latitude(this.geoLocation.getLatitude())
+                .longitude(this.geoLocation.getLongitude())
+                .type(this.type)
+                .isFreeParking(this.parkingInfo.isFree())
+                .parkingType(this.parkingInfo.getParkingType())
+                .locationGuideText(this.locationGuideText)
+                .build();
+    }
+
 }
