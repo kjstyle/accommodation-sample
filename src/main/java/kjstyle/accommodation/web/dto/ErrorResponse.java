@@ -1,4 +1,4 @@
-package kjstyle.accommodation.web;
+package kjstyle.accommodation.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

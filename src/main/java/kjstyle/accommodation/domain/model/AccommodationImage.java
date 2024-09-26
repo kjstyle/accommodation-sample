@@ -1,4 +1,4 @@
-package kjstyle.accommodation.domain;
+package kjstyle.accommodation.domain.model;
 
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.repository.entities.ImageEntity;

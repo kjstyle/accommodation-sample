@@ -1,9 +1,8 @@
-package kjstyle.accommodation.domain;
+package kjstyle.accommodation.domain.model;
 
 import kjstyle.accommodation.domain.enums.AccommodationStatus;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

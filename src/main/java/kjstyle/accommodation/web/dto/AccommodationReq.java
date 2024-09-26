@@ -1,15 +1,13 @@
 package kjstyle.accommodation.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import kjstyle.accommodation.domain.GeoLocation;
-import kjstyle.accommodation.domain.ParkingInfo;
+import kjstyle.accommodation.domain.model.GeoLocation;
+import kjstyle.accommodation.domain.model.ParkingInfo;
 import kjstyle.accommodation.domain.enums.AccommodationStatus;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.web.validators.ValidAccommodationImage;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 

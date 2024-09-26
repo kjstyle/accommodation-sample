@@ -1,4 +1,4 @@
-package kjstyle.accommodation.web;
+package kjstyle.accommodation.web.common;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

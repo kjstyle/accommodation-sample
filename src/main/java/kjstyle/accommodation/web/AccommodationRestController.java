@@ -1,8 +1,9 @@
 package kjstyle.accommodation.web;
 
 import jakarta.validation.Valid;
-import kjstyle.accommodation.domain.Accommodation;
+import kjstyle.accommodation.domain.model.Accommodation;
 import kjstyle.accommodation.domain.service.AccommodationService;
+import kjstyle.accommodation.web.common.BaseApiController;
 import kjstyle.accommodation.web.dto.AccommodationReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

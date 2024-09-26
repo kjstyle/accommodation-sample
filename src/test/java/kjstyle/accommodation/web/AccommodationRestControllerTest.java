@@ -1,8 +1,8 @@
 package kjstyle.accommodation.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kjstyle.accommodation.domain.GeoLocation;
-import kjstyle.accommodation.domain.ParkingInfo;
+import kjstyle.accommodation.domain.model.GeoLocation;
+import kjstyle.accommodation.domain.model.ParkingInfo;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.enums.ParkingType;

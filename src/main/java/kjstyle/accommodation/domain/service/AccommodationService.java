@@ -1,7 +1,7 @@
 package kjstyle.accommodation.domain.service;
 
-import kjstyle.accommodation.domain.Accommodation;
-import kjstyle.accommodation.domain.AccommodationImage;
+import kjstyle.accommodation.domain.model.Accommodation;
+import kjstyle.accommodation.domain.model.AccommodationImage;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.exceptions.NotFoundImageException;
@@ -14,10 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Slf4j

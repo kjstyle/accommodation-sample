@@ -1,4 +1,4 @@
-package kjstyle.accommodation.domain;
+package kjstyle.accommodation.domain.model;
 
 import kjstyle.accommodation.domain.enums.ParkingType;
 import lombok.AllArgsConstructor;
