@@ -1,10 +1,10 @@
 package kjstyle.accommodation.domain.service;
 
-import kjstyle.accommodation.domain.model.Accommodation;
-import kjstyle.accommodation.domain.model.AccommodationImage;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.exceptions.NotFoundImageException;
+import kjstyle.accommodation.domain.model.Accommodation;
+import kjstyle.accommodation.domain.model.AccommodationImage;
 import kjstyle.accommodation.domain.repository.AccommodationRepository;
 import kjstyle.accommodation.domain.repository.ImageRepository;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
@@ -47,7 +47,7 @@ public class AccommodationService {
         String mainImagePath = StreamSupport.stream(savedImageEntities.spliterator(), false)
                 .filter(imageEntity -> imageEntity.getImageType().equals(ImageType.MAIN))
                 .map(ImageEntity::getPath)
-                .findFirst().orElse("");
+                .findFirst().orElse("/img/default_main_img.jpg");
 
         return Accommodation.of(savedAccommodationEntity, mainImagePath);
     }

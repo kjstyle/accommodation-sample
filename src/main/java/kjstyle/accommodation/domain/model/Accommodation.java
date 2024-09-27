@@ -49,5 +49,4 @@ public class Accommodation {
                 .locationGuideText(this.locationGuideText)
                 .build();
     }
-
 }
