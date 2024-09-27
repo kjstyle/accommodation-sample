@@ -9,6 +9,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+/**
+ * 숙소 이미지
+ *   - 숙소의 이미지들로.. 연관관계 없이 사용
+ */
 @Entity
 @Table(name = "image")
 @Getter

@@ -8,6 +8,12 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+/**
+ * 숙소-시설 관계 엔티니
+ *   - 숙소와 시설을 연결해주는 관계테이블
+ *   - 숙소와 시설모두 many-to-onne으로 연결되고 lazy임
+ *   - own(mappedBy)은 시설만
+ */
 @Entity
 @Table(name = "ACCOMMODATION_AMENITY")
 @Getter

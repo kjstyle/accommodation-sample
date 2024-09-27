@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+/**
+ * 숙소 엔티티
+ *   - 가장 많이 사용될 녀석이라 이 엔티티에는 연관관계를 걸지 않을 예정
+ */
 @Entity
 @Table(name = "ACCOMMODATION")
 @Getter

@@ -10,6 +10,10 @@ import org.hibernate.type.SqlTypes;
 
 import java.time.LocalTime;
 
+/**
+ * 숙소에 딸린 방 (사실상 방유형)
+ *   - 1호실, 2호실..이 아닌 오션뷰, 온돌방, 스위트 등등을 표현
+ */
 @Entity
 @Table(name = "ROOM")
 @Getter
