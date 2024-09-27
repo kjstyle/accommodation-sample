@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "ACCOMMODATION")
 @Getter
@@ -39,20 +36,11 @@ public class AccommodationEntity {
     @Column(nullable = false)
     private AccommodationType type;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private boolean isFreeParking;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
     private ParkingType parkingType;
 
-    @Column(nullable = true)
     private String locationGuideText;
-
-//    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @Column(nullable = false)
-//    private List<ImageEntity> images = new ArrayList<>();
-
-    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<AccommodationAmenityEntity> accommodationAmenityList = new ArrayList<>();
 }

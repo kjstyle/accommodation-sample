@@ -25,11 +25,12 @@ public class AmenityEntity {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String name;  // 예: "에어컨", "냉장고", "테라스"
+    private String name;
 
-    @Column(nullable = true)
-    private String description;  // 시설에 대한 설명 (예: "전 객실 에어컨 완비")
+    @Column(nullable = false)
+    private String description;
 
     @OneToMany(mappedBy = "amenity", cascade = CascadeType.ALL, orphanRemoval = false)
+    @Builder.Default // warning이 떠서 보니... @Builder랑 쫑나서.. builder한테 필드변수 초기화 그냥 유지해..옵션을 추가
     private List<AccommodationAmenityEntity> accommodationAmenities = new ArrayList<>();
 }
