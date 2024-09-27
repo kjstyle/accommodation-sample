@@ -11,6 +11,23 @@ INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('THUMBNAIL', 'images/accom
 INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('DETAIL', 'images/accommodation1/detail.jpg', 2);
 INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('LOCATION', 'images/accommodation1/location.jpg', 2);
 
+INSERT INTO amenity (description, name) VALUES ('에어컨이 설치되어 있습니다.', '에어컨');
+INSERT INTO amenity (description, name) VALUES ('냉장고가 구비되어 있습니다.', '냉장고');
+INSERT INTO amenity (description, name) VALUES ('욕조가 있습니다.', '욕조');
+INSERT INTO amenity (description, name) VALUES ('무료 Wi-Fi가 제공됩니다.', '무료 Wi-Fi');
+INSERT INTO amenity (description, name) VALUES ('주차장이 마련되어 있습니다.', '주차장');
+INSERT INTO amenity (description, name) VALUES ('온돌방입니다.', '온돌방');
+INSERT INTO amenity (description, name) VALUES ('해변까지 도보로 이동할 수 있습니다.', '해변 접근');
+
+
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 1, 1);  -- 비산호텔 - 에어컨
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 1, 2);  -- 비산호텔 - 냉장고
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 1, 3);  -- 비산호텔 - 욕조
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 2, 4);  -- 안양 콘도 - 무료 Wi-Fi
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 2, 5);  -- 안양 콘도 - 주차장
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 3, 6);  -- 시내 게스트하우스 - 온돌방
+INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 3, 7);  -- 시내 게스트하우스 - 해변 접근
+
 /*
     create table accommodation (
         is_free_parking boolean not null,

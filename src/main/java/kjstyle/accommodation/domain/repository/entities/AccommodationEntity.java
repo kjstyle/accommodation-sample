@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "ACCOMMODATION")
 @Getter
@@ -49,4 +52,7 @@ public class AccommodationEntity {
 //    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
 //    @Column(nullable = false)
 //    private List<ImageEntity> images = new ArrayList<>();
+
+    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AccommodationAmenityEntity> accommodationAmenityList = new ArrayList<>();
 }

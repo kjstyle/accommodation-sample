@@ -33,3 +33,18 @@ CREATE TABLE IMAGE (
    acmd_no BIGINT NOT NULL
 -- ,CONSTRAINT fk_accommodation FOREIGN KEY (acmd_no) REFERENCES ACCOMMODATION(acmd_no) ON DELETE CASCADE
 );
+
+DROP TABLE IF EXISTS amenity CASCADE;
+CREATE TABLE amenity (
+    amenity_no BIGINT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255),
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+DROP TABLE IF EXISTS accommodation_amenity CASCADE;
+CREATE TABLE accommodation_amenity (
+    acmd_amenity_no BIGINT AUTO_INCREMENT PRIMARY KEY,
+    acmd_no BIGINT NOT NULL,
+    amenity_no BIGINT NOT NULL,
+    is_available BOOLEAN NOT NULL
+);
