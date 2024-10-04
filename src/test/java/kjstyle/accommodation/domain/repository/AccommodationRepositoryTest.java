@@ -1,9 +1,9 @@
 package kjstyle.accommodation.domain.repository;
 
+import kjstyle.accommodation.common.BaseJpaTest;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ParkingType;
 import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
-import kjstyle.accommodation.domain.repository.common.BaseJpaTest;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

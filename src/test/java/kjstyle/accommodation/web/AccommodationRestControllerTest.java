@@ -1,12 +1,12 @@
 package kjstyle.accommodation.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kjstyle.accommodation.domain.model.GeoLocation;
-import kjstyle.accommodation.domain.model.ParkingInfo;
+import kjstyle.accommodation.common.BaseMockMvcTest;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.enums.ParkingType;
-import kjstyle.accommodation.domain.repository.common.BaseMockMvcTest;
+import kjstyle.accommodation.domain.model.GeoLocation;
+import kjstyle.accommodation.domain.model.ParkingInfo;
 import kjstyle.accommodation.web.dto.AccommodationReq;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

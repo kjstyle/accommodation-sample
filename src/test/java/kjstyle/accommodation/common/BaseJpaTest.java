@@ -1,4 +1,4 @@
-package kjstyle.accommodation.domain.repository.common;
+package kjstyle.accommodation.common;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

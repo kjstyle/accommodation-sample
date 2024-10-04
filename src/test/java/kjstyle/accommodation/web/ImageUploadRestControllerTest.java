@@ -1,6 +1,6 @@
 package kjstyle.accommodation.web;
 
-import kjstyle.accommodation.domain.repository.common.BaseMockMvcTest;
+import kjstyle.accommodation.common.BaseMockMvcTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;

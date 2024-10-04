@@ -1,13 +1,13 @@
 package kjstyle.accommodation.domain.service;
 
+import kjstyle.accommodation.common.BaseTest;
+import kjstyle.accommodation.domain.enums.AccommodationType;
+import kjstyle.accommodation.domain.enums.ImageType;
+import kjstyle.accommodation.domain.enums.ParkingType;
 import kjstyle.accommodation.domain.model.Accommodation;
 import kjstyle.accommodation.domain.model.AccommodationImage;
 import kjstyle.accommodation.domain.model.GeoLocation;
 import kjstyle.accommodation.domain.model.ParkingInfo;
-import kjstyle.accommodation.domain.enums.AccommodationType;
-import kjstyle.accommodation.domain.enums.ImageType;
-import kjstyle.accommodation.domain.enums.ParkingType;
-import kjstyle.accommodation.domain.repository.common.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

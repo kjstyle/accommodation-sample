@@ -1,8 +1,8 @@
 package kjstyle.accommodation.domain;
 
+import kjstyle.accommodation.common.BaseTest;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.repository.ImageRepository;
-import kjstyle.accommodation.domain.repository.common.BaseTest;
 import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import kjstyle.accommodation.domain.service.UploadService;
 import org.junit.jupiter.api.AfterAll;

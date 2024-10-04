@@ -27,12 +27,22 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // 아래는 testcontainers를 사용하려고 추가한 의존성들
+    //testImplementation "org.junit.jupiter:junit-jupiter:5.8.1"  // 현 스프링부트 3.3.4의 의존성으로는 5.10.3 인데..https://java.testcontainers.org/quickstart/junit_5_quickstart/ 을 참고해서 버전을 5.8.1로 낮춤
+
+    testImplementation "org.testcontainers:testcontainers:1.20.2"
+    testImplementation "org.testcontainers:junit-jupiter:1.20.2"
+
 }
 
 tasks.named('test') {

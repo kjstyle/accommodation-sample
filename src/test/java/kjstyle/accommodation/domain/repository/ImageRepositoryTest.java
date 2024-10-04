@@ -1,8 +1,8 @@
 package kjstyle.accommodation.domain.repository;
 
+import kjstyle.accommodation.common.BaseJpaTest;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.exceptions.NotFoundImageException;
-import kjstyle.accommodation.domain.repository.common.BaseJpaTest;
 import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
