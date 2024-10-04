@@ -21,8 +21,8 @@ public class Accommodation {
     private ParkingInfo parkingInfo;
     private String locationGuideText;
 
-    @Setter
-    private String mainImagePath;
+    @Setter // 숙소정보를 가지고와서 메인이미지 path만 추가로 세팅해야해서
+    private String mainImagePath; // 역정규화? 느낌으로 넣은거고.. 썸네일 등 자주 조회하는 녀석이 추가될 수 있음
 
     public static Accommodation of(AccommodationEntity entity, String mainImagePath) {
         return Accommodation.builder()
