@@ -9,7 +9,4 @@ public interface AccommodationRepository extends CrudRepository<AccommodationEnt
 
     Optional<AccommodationEntity> findById(long id);
 
-//    @EntityGraph(attributePaths = {"accommodationAmenityList"})
-//    @Query("SELECT a FROM AccommodationEntity a JOIN a.accommodationAmenityList aam INNER JOIN aam.amenity amen WHERE a.id = :id")
-//    Optional<AccommodationEntity> findAccommodationWithAmenities(@Param("id") Long id);
 }
