@@ -28,7 +28,7 @@ public class AccommodationService {
     private final ImageRepository imageRepository;
 
     @Transactional(readOnly = true)
-    @Cacheable(cacheNames = "accommodation", key = "#id", cacheManager = "accommodationCacheManager")
+    @Cacheable(cacheNames = "accommodation", key = "#id", cacheManager = "accommodationCacheManager", condition = "#id > 0")
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(NotFoundAccommodationException::new);
         ImageEntity mainImageEntity = imageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);

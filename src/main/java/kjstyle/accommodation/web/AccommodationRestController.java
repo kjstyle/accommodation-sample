@@ -18,9 +18,6 @@ public class AccommodationRestController extends BaseApiController {
 
     @GetMapping("/accommodation/{id}")
     public Accommodation getAccommodationById(@PathVariable Long id) {
-        if (id < 1) {
-            throw new IllegalArgumentException("Accommodation id must be greater than 0");
-        }
         return accommodationService.findById(id);
     }
 
