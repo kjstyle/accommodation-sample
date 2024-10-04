@@ -3,13 +3,11 @@ package kjstyle.accommodation.domain.model;
 import kjstyle.accommodation.domain.enums.AccommodationStatus;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor // 스프링캐시에 넣으려면 Deserialization할 때 NoArgsConstructor가 있거나 setter가 있어야하는데..여튼 어쩔 수 없이 추가
 @Builder
 public class Accommodation {
     private long id;
@@ -44,7 +42,7 @@ public class Accommodation {
                 .latitude(this.geoLocation.getLatitude())
                 .longitude(this.geoLocation.getLongitude())
                 .type(this.type)
-                .isFreeParking(this.parkingInfo.isFree())
+                .isFreeParking(this.parkingInfo.getIsFree())
                 .parkingType(this.parkingInfo.getParkingType())
                 .locationGuideText(this.locationGuideText)
                 .build();

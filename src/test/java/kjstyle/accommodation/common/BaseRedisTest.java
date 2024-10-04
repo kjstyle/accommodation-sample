@@ -1,28 +1,10 @@
-package kjstyle.accommodation.testcontainers;
+package kjstyle.accommodation.common;
 
-
-import kjstyle.accommodation.common.BaseTest;
-import kjstyle.accommodation.infra.RedisCrudService;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
-/**
- * testconatainers 기본 테스트
- *   - 로컬에 도커를 먼저 실행시켜놔야함 (전제)
- *   - BaseRedisTest라는 추상클래스를 만들어서 그걸 다른 테스트에서 사용할거라.. 지우는게 맞지만.. 요 클래스는 도입할 때 독립적으로 테스트했던 이력으로 남김
- */
-@Deprecated
-@Testcontainers
-public class RedisContainerTest extends BaseTest { // TODO : 추상클래스로 변경해서 상속받아 사용하도록 해야할 듯
-
-    @Autowired
-    private RedisCrudService redisCrudService;
-
+public abstract class BaseRedisTest extends BaseTest {
     static final String REDIS_IMAGE = "redis:latest";
     static final GenericContainer<?> REDIS_CONTAINER;
 
@@ -38,12 +20,5 @@ public class RedisContainerTest extends BaseTest { // TODO : 추상클래스로 
         registry.add("spring.data.redis.host", REDIS_CONTAINER::getHost); // spring.redis가 아니라 srping.data.redis로 바뀌었다. 예제코드 무지성 복붙 주의!!
         registry.add("spring.data.redis.port", () -> "" + REDIS_CONTAINER.getMappedPort(6379));
         registry.add("spring.data.redis.password", () -> "1234");
-    }
-
-    @Test
-    void 레디스_SET_GET_테스트 () {
-        redisCrudService.setKey("test-key", "test-value");
-        String valueFromRedis = redisCrudService.getKey("test-key");
-        Assertions.assertThat(valueFromRedis).isEqualTo("test-value");
     }
 }

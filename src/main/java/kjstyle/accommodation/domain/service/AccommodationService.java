@@ -11,6 +11,7 @@ import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
 import kjstyle.accommodation.domain.repository.entities.ImageEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +28,7 @@ public class AccommodationService {
     private final ImageRepository imageRepository;
 
     @Transactional(readOnly = true)
+    @Cacheable(cacheNames = "accommodation", key = "#id", cacheManager = "accommodationCacheManager")
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(NotFoundAccommodationException::new);
         ImageEntity mainImageEntity = imageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);

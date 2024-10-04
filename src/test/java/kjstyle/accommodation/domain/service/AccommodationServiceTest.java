@@ -1,6 +1,6 @@
 package kjstyle.accommodation.domain.service;
 
-import kjstyle.accommodation.common.BaseTest;
+import kjstyle.accommodation.common.BaseRedisTest;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
 import kjstyle.accommodation.domain.enums.ParkingType;
@@ -10,6 +10,7 @@ import kjstyle.accommodation.domain.model.GeoLocation;
 import kjstyle.accommodation.domain.model.ParkingInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
@@ -17,10 +18,13 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
-class AccommodationServiceTest extends BaseTest {
+class AccommodationServiceTest extends BaseRedisTest {
 
     @Autowired
     private AccommodationService accommodationService;
+
+    @Autowired
+    private CacheManager cacheManager;
 
     @Test
     void 숙소저장테스트() {
@@ -38,5 +42,13 @@ class AccommodationServiceTest extends BaseTest {
                 ,AccommodationImage.builder().imageType(ImageType.THUMBNAIL).path("/img/3.jpg").build()
         ));
         assertThat(saved).isNotNull();
+    }
+
+    @Test
+    void 숙소조회_캐시_잘_걸리나_테스트() {
+        // 서비스 메소드가 호출되지 않았으면 캐시도 아직 안구워졌어야함.
+        assertThat(cacheManager.getCache("accommodation").get(1L)).isNull();
+        accommodationService.findById(1L);
+        assertThat(cacheManager.getCache("accommodation").get(1L)).isNotNull();
     }
 }
