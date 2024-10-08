@@ -28,19 +28,20 @@ INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TR
 INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 3, 6);  -- 시내 게스트하우스 - 온돌방
 INSERT INTO accommodation_amenity (is_available, acmd_no, amenity_no) VALUES (TRUE, 3, 7);  -- 시내 게스트하우스 - 해변 접근
 
-/*
-    create table accommodation (
-        is_free_parking boolean not null,
-        latitude float(53) not null,
-        longitude float(53) not null,
-        acmd_no bigint not null,
-        image_no bigint not null,
-        name varchar(100) not null,
-        description varchar(1000) not null,
-        location_guide_text varchar(255),
-        parking_type enum ('ETC','FIELD','MACHINE'),
-        type enum ('HOTEL','MOTEL') not null,
-        primary key (acmd_no)
-    )
-*/
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('온돌방', '서울 호텔의 전통 온돌방', 1, 2, '싱글 침대 2개', 2, '14:00', '12:00', '프로모션 없음', 1);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('오션뷰', '서울 호텔의 멋진 오션뷰 객실', 1, 2, '퀸 침대 1개', 1, '14:00', '12:00', '프로모션 없음', 1);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('마운틴뷰', '서울 호텔의 산 전망 객실', 2, 4, '더블 침대 2개', 2, '14:00', '12:00', '프로모션 없음', 1);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('패밀리룸', '서울 호텔의 가족 단위 투숙객을 위한 객실', 3, 6, '더블 침대 1개, 싱글 침대 2개', 3, '14:00', '12:00', '프로모션 없음', 1);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('스위트룸', '서울 호텔의 최고급 스위트룸', 2, 4, '킹 사이즈 침대 1개', 1, '14:00', '12:00', '프로모션 있음', 1);
 
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('온돌방', '부산 모텔의 전통 온돌방', 1, 2, '싱글 침대 2개', 2, '15:00', '11:00', '프로모션 없음', 2);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('오션뷰', '부산 모텔의 멋진 오션뷰 객실', 1, 2, '퀸 침대 1개', 1, '15:00', '11:00', '프로모션 없음', 2);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('마운틴뷰', '부산 모텔의 산 전망 객실', 2, 4, '더블 침대 2개', 2, '15:00', '11:00', '프로모션 없음', 2);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('패밀리룸', '부산 모텔의 가족 단위 투숙객을 위한 객실', 3, 6, '더블 침대 1개, 싱글 침대 2개', 3, '15:00', '11:00', '프로모션 없음', 2);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('스위트룸', '부산 모텔의 최고급 스위트룸', 2, 4, '킹 사이즈 침대 1개', 1, '15:00', '11:00', '프로모션 있음', 2);
+
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('온돌방', '제주 호텔의 전통 온돌방', 1, 2, '싱글 침대 2개', 2, '16:00', '10:00', '프로모션 없음', 3);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('오션뷰', '제주 호텔의 멋진 오션뷰 객실', 1, 2, '퀸 침대 1개', 1, '16:00', '10:00', '프로모션 없음', 3);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('마운틴뷰', '제주 호텔의 산 전망 객실', 2, 4, '더블 침대 2개', 2, '16:00', '10:00', '프로모션 없음', 3);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('패밀리룸', '제주 호텔의 가족 단위 투숙객을 위한 객실', 3, 6, '더블 침대 1개, 싱글 침대 2개', 3, '16:00', '10:00', '프로모션 없음', 3);
+INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('스위트룸', '제주 호텔의 최고급 스위트룸', 2, 4, '킹 사이즈 침대 1개', 1, '16:00', '10:00', '프로모션 있음', 3);

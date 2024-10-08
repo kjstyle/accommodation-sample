@@ -28,7 +28,7 @@ public class RoomEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String rooomName;
+    private String roomName;
 
     private String description;
 
@@ -53,4 +53,6 @@ public class RoomEntity {
     @Column(nullable = true, length = 255)
     private String promotionText;  // 예: "초강력특가"
 
+    @Column(name = "acmd_no", nullable = false)
+    private long accommodationId;
 }

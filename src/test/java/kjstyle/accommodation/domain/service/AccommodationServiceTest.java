@@ -36,7 +36,7 @@ class AccommodationServiceTest extends BaseRedisTest {
                 .parkingInfo(new ParkingInfo(true, ParkingType.MACHINE))
                 .description("안양 최고의 호텔")
                 .build();
-        Accommodation saved = accommodationService.save(accommodation, Arrays.asList(
+        Accommodation saved = accommodationService.create(accommodation, Arrays.asList(
                 AccommodationImage.builder().imageType(ImageType.MAIN).path("/img/1.jpg").build()
                 ,AccommodationImage.builder().imageType(ImageType.DETAIL).path("/img/2.jpg").build()
                 ,AccommodationImage.builder().imageType(ImageType.THUMBNAIL).path("/img/3.jpg").build()

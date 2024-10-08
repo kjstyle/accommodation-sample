@@ -33,3 +33,19 @@ CREATE TABLE accommodation_amenity (
     amenity_no BIGINT NOT NULL,
     is_available BOOLEAN NOT NULL
 );
+
+DROP TABLE IF EXISTS ROOM CASCADE;
+
+CREATE TABLE ROOM (
+    room_no BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_name VARCHAR(255) NOT NULL,
+    description VARCHAR(1000),
+    min_occupancy INT NOT NULL,
+    max_occupancy INT NOT NULL,
+    bed_type_description VARCHAR(255) NOT NULL,
+    bed_count INT NOT NULL,
+    check_in_time TIME NOT NULL,
+    check_out_time TIME NOT NULL,
+    promotion_text VARCHAR(255),
+    acmd_no BIGINT NOT NULL
+);

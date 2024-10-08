@@ -19,9 +19,9 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 @Slf4j
-@Service
 @RequiredArgsConstructor
 @Transactional
+@Service
 public class AccommodationService {
 
     private final AccommodationRepository accommodationRepository;
@@ -36,7 +36,7 @@ public class AccommodationService {
     }
 
     @Transactional
-    public Accommodation save(Accommodation accommodation, List<AccommodationImage> imageList) {
+    public Accommodation create(Accommodation accommodation, List<AccommodationImage> imageList) {
         AccommodationEntity savedAccommodationEntity = accommodationRepository.save(accommodation.toSaveEntity());
         long newAccommodationId = savedAccommodationEntity.getId();
 
