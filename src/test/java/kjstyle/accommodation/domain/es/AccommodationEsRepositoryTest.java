@@ -1,9 +1,10 @@
-package kjstyle.accommodation.domain.es.documents;
+package kjstyle.accommodation.domain.es;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import kjstyle.accommodation.common.BaseEsTest;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ParkingType;
+import kjstyle.accommodation.domain.es.documents.AccommodationDoc;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
