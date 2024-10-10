@@ -49,3 +49,13 @@ CREATE TABLE ROOM (
     promotion_text VARCHAR(255),
     acmd_no BIGINT NOT NULL
 );
+
+DROP TABLE IF EXISTS ROOM_PRICE CASCADE;
+CREATE TABLE ROOM_PRICE (
+    room_price_no BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_no BIGINT NOT NULL,
+    price_date DATE NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    discount_price DECIMAL(10, 2),
+    is_promotional BOOLEAN NOT NULL default 0
+);

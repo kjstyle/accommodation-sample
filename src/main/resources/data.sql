@@ -45,3 +45,63 @@ INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type
 INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('마운틴뷰', '제주 호텔의 산 전망 객실', 2, 4, '더블 침대 2개', 2, '16:00', '10:00', '프로모션 없음', 3);
 INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('패밀리룸', '제주 호텔의 가족 단위 투숙객을 위한 객실', 3, 6, '더블 침대 1개, 싱글 침대 2개', 3, '16:00', '10:00', '프로모션 없음', 3);
 INSERT INTO ROOM (room_name, description, min_occupancy, max_occupancy, bed_type_description, bed_count, check_in_time, check_out_time, promotion_text, acmd_no) VALUES ('스위트룸', '제주 호텔의 최고급 스위트룸', 2, 4, '킹 사이즈 침대 1개', 1, '16:00', '10:00', '프로모션 있음', 3);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (1, '2024-11-01', 100000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (1, '2024-11-02', 110000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (1, '2024-11-03', 120000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (2, '2024-11-01', 130000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (2, '2024-11-02', 140000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (2, '2024-11-03', 150000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (3, '2024-11-01', 160000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (3, '2024-11-02', 170000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (3, '2024-11-03', 180000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (4, '2024-11-01', 190000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (4, '2024-11-02', 200000, 10000, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (4, '2024-11-03', 210000, 5000, 1);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (5, '2024-11-01', 220000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (5, '2024-11-02', 230000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (5, '2024-11-03', 240000, 0, 1);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (6, '2024-11-01', 100000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (6, '2024-11-02', 110000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (6, '2024-11-03', 120000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (7, '2024-11-01', 130000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (7, '2024-11-02', 140000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (7, '2024-11-03', 150000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (8, '2024-11-01', 160000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (8, '2024-11-02', 170000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (8, '2024-11-03', 180000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (9, '2024-11-01', 190000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (9, '2024-11-02', 200000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (9, '2024-11-03', 210000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (10, '2024-11-01', 220000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (10, '2024-11-02', 230000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (10, '2024-11-03', 240000, 0, 1);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (11, '2024-11-01', 100000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (11, '2024-11-02', 110000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (11, '2024-11-03', 120000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (12, '2024-11-01', 130000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (12, '2024-11-02', 140000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (12, '2024-11-03', 150000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (13, '2024-11-01', 160000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (13, '2024-11-02', 170000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (13, '2024-11-03', 180000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (14, '2024-11-01', 190000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (14, '2024-11-02', 200000, 0, 0);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (14, '2024-11-03', 210000, 0, 0);
+
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-01', 220000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-02', 230000, 0, 1);
+INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-03', 240000, 0, 1);
