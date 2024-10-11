@@ -5,9 +5,12 @@ import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ParkingType;
 import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,6 +24,12 @@ class AccommodationRepositoryTest extends BaseJpaTest {
     void 숙소조회테스트fromDB() {
         AccommodationEntity entity = accommodationRepository.findById(1L).orElseThrow(NotFoundAccommodationException::new);
         assertThat(entity.getName()).isEqualTo("서울 호텔");
+    }
+
+    @Test
+    void 특정지역의_숙소들_가져와보기() {
+        List<AccommodationEntity> accommodationEntityList = accommodationRepository.findAllByRegionId(1L);
+        Assertions.assertThat(accommodationEntityList.size()).isEqualTo(2);
     }
 
     @Test

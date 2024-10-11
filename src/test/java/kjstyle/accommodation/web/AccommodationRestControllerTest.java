@@ -37,6 +37,16 @@ class AccommodationRestControllerTest extends BaseMockMvcTest {
     }
 
     @Test
+    void 지역번호로_숙소리스트_조회하기() throws Exception {
+        final ResultActions resultActions = this.mockMvc.perform(
+                get("/api/accommodation")
+                        .param("regionId", String.valueOf(1))
+                        .contentType(MediaType.APPLICATION_JSON)
+        );
+        resultActions.andExpect(status().isOk());
+    }
+
+    @Test
     void 없는숙소조회테스트() throws Exception {
         final ResultActions resultActions = this.mockMvc.perform(
                 get("/api/accommodation/0")

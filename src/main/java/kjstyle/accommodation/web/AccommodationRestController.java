@@ -24,6 +24,11 @@ public class AccommodationRestController extends BaseApiController {
         return accommodationService.findById(id);
     }
 
+    @GetMapping("/accommodation")
+    public List<Accommodation> getAccommodationListByRegionId(@RequestParam("regionId") Long regionId) {
+        return accommodationService.findAllByRegionId(regionId);
+    }
+
     @PostMapping("/accommodation")
     public Accommodation createAccommodation(@RequestBody @Valid AccommodationReq.Create accommodationReqCreate) {
         List<AccommodationImage> imageList = accommodationReqCreate.getImageList().stream().map(AccommodationReq.ImageOnCreate::toAccommodationImage).toList();

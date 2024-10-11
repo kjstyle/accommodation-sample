@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Slf4j
@@ -27,12 +29,33 @@ public class AccommodationService {
     private final AccommodationRepository accommodationRepository;
     private final ImageRepository imageRepository;
 
+    public static final String DEFAULT_MAIN_IMG = "/img/default_main_img.jpg";
+
     @Transactional(readOnly = true)
     @Cacheable(cacheNames = "accommodation", key = "#id", cacheManager = "accommodationCacheManager", condition = "#id > 0")
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(NotFoundAccommodationException::new);
         ImageEntity mainImageEntity = imageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);
         return Accommodation.of(accommodationEntity, mainImageEntity.getPath());
+    }
+
+    @Transactional(readOnly = true)
+    public List<Accommodation> findAllByRegionId(long regionId) {
+        List<AccommodationEntity> accommodationEntityList = accommodationRepository.findAllByRegionId(regionId);
+        List<Long> accommodationIdList = accommodationEntityList.stream()
+                .map(AccommodationEntity::getId)
+                .toList();
+
+        Map<Long, String> mainImageMap = imageRepository.findAllByAccommodationIdInAndImageType(accommodationIdList, ImageType.MAIN)
+                .stream()
+                .collect(Collectors.toMap(ImageEntity::getAccommodationId, ImageEntity::getPath));
+
+        return accommodationEntityList.stream()
+                .map(accommodationEntity -> {
+                    String mainImagePath = mainImageMap.getOrDefault(accommodationEntity.getId(), DEFAULT_MAIN_IMG);
+                    return Accommodation.of(accommodationEntity, mainImagePath);
+                })
+                .toList();
     }
 
     @Transactional
@@ -49,7 +72,7 @@ public class AccommodationService {
         String mainImagePath = StreamSupport.stream(savedImageEntities.spliterator(), false)
                 .filter(imageEntity -> imageEntity.getImageType().equals(ImageType.MAIN))
                 .map(ImageEntity::getPath)
-                .findFirst().orElse("/img/default_main_img.jpg");
+                .findFirst().orElse(DEFAULT_MAIN_IMG);
 
         return Accommodation.of(savedAccommodationEntity, mainImagePath);
     }

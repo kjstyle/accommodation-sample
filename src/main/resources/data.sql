@@ -1,12 +1,46 @@
--- INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text) VALUES ('서울 호텔', '서울 중심에 위치한 5성급 호텔로, 럭셔리한 객실과 다양한 편의 시설을 제공합니다.', 37.5665, 126.9780, 'HOTEL', 1, 'FIELD', '서울역에서 도보 5분 거리');
--- INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text) VALUES ('부산 모텔', '부산 해운대 근처에 위치한 모텔로, 합리적인 가격에 숙박을 제공합니다.', 35.1587, 129.1603, 'MOTEL', 1, 'MACHINE', '해운대역에서 도보 10분 거리');
--- INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text) VALUES ('제주 호텔', '제주 바다 전망을 자랑하는 호텔로, 여유로운 휴식을 위한 최적의 장소입니다.', 33.4996, 126.5312, 'HOTEL', 1, 'ETC', '제주공항에서 차로 15분 거리');
+INSERT INTO REGION (name, country) VALUES ('서울', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('부산', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('인천', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('대구', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('광주', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('대전', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('울산', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('강원도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('경기도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('제주도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('전라북도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('전라남도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('경상북도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('경상남도', '대한민국');
+INSERT INTO REGION (name, country) VALUES ('충청북도', '대한민국');
+
+-- 일본 지역 5개
+INSERT INTO REGION (name, country) VALUES ('도쿄', '일본');
+INSERT INTO REGION (name, country) VALUES ('오사카', '일본');
+INSERT INTO REGION (name, country) VALUES ('후쿠오카', '일본');
+INSERT INTO REGION (name, country) VALUES ('교토', '일본');
+INSERT INTO REGION (name, country) VALUES ('삿포로', '일본');
+
+-- 동남아 지역 5개
+INSERT INTO REGION (name, country) VALUES ('방콕', '태국');
+INSERT INTO REGION (name, country) VALUES ('싱가포르', '싱가포르');
+INSERT INTO REGION (name, country) VALUES ('하노이', '베트남');
+INSERT INTO REGION (name, country) VALUES ('쿠알라룸푸르', '말레이시아');
+INSERT INTO REGION (name, country) VALUES ('발리', '인도네시아');
+
+-- 중국 지역 5개
+INSERT INTO REGION (name, country) VALUES ('베이징', '중국');
+INSERT INTO REGION (name, country) VALUES ('상하이', '중국');
+INSERT INTO REGION (name, country) VALUES ('광저우', '중국');
+INSERT INTO REGION (name, country) VALUES ('청두', '중국');
+INSERT INTO REGION (name, country) VALUES ('홍콩', '중국');
 
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('서울 호텔', '서울 중심에 위치한 5성급 호텔로, 럭셔리한 객실과 다양한 편의 시설을 제공합니다.', 37.5665, 126.9780, 'HOTEL', 1, 'FIELD', '서울역에서 도보 5분 거리', 1);
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('부산 모텔', '부산 해운대 근처에 위치한 모텔로, 합리적인 가격에 숙박을 제공합니다.', 35.1587, 129.1603, 'MOTEL', 1, 'MACHINE', '해운대역에서 도보 10분 거리', 2);
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('제주 리조트', '제주 바다 전망을 자랑하는 리조트로, 여유로운 휴식을 위한 최적의 장소입니다.', 33.4996, 126.5312, 'RESORT', 1, 'ETC', '제주공항에서 차로 15분 거리', 10);
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('강원도 펜션', '자연 속에서 여유로운 휴식을 즐길 수 있는 강원도 펜션입니다.', 37.5559, 128.2095, 'PENSION', 1, 'FIELD', '설악산 근처', 8);
 INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('경기도 호텔', '수도권에 위치한 현대적인 호텔로, 비즈니스와 관광에 적합합니다.', 37.2636, 127.0286, 'HOTEL', 1, 'MACHINE', '수원역에서 도보 10분 거리', 9);
+INSERT INTO ACCOMMODATION (name, description, latitude, longitude, type, is_free_parking, parking_type, location_guide_text, region_no) VALUES ('서울 호텔 2호점', '서울 중심에 위치한 5성급 호텔로, 럭셔리한 객실과 다양한 편의 시설을 제공합니다.', 37.5665, 126.9780, 'HOTEL', 1, 'FIELD', '서울역에서 도보 5분 거리', 1);
 
 
 INSERT INTO IMAGE (image_type, path, acmd_no) VALUES ('MAIN', 'images/accommodation1/main.jpg', 1);
@@ -112,40 +146,3 @@ INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotion
 INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-01', 220000, 0, 1);
 INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-02', 230000, 0, 1);
 INSERT INTO ROOM_PRICE (room_no, price_date, price, discount_price, is_promotional) VALUES (15, '2024-11-03', 240000, 0, 1);
-
-INSERT INTO REGION (name, country) VALUES ('서울', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('부산', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('인천', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('대구', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('광주', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('대전', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('울산', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('강원도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('경기도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('제주도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('전라북도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('전라남도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('경상북도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('경상남도', '대한민국');
-INSERT INTO REGION (name, country) VALUES ('충청북도', '대한민국');
-
--- 일본 지역 5개
-INSERT INTO REGION (name, country) VALUES ('도쿄', '일본');
-INSERT INTO REGION (name, country) VALUES ('오사카', '일본');
-INSERT INTO REGION (name, country) VALUES ('후쿠오카', '일본');
-INSERT INTO REGION (name, country) VALUES ('교토', '일본');
-INSERT INTO REGION (name, country) VALUES ('삿포로', '일본');
-
--- 동남아 지역 5개
-INSERT INTO REGION (name, country) VALUES ('방콕', '태국');
-INSERT INTO REGION (name, country) VALUES ('싱가포르', '싱가포르');
-INSERT INTO REGION (name, country) VALUES ('하노이', '베트남');
-INSERT INTO REGION (name, country) VALUES ('쿠알라룸푸르', '말레이시아');
-INSERT INTO REGION (name, country) VALUES ('발리', '인도네시아');
-
--- 중국 지역 5개
-INSERT INTO REGION (name, country) VALUES ('베이징', '중국');
-INSERT INTO REGION (name, country) VALUES ('상하이', '중국');
-INSERT INTO REGION (name, country) VALUES ('광저우', '중국');
-INSERT INTO REGION (name, country) VALUES ('청두', '중국');
-INSERT INTO REGION (name, country) VALUES ('홍콩', '중국');
