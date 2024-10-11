@@ -8,7 +8,8 @@ CREATE TABLE ACCOMMODATION (
    type VARCHAR(255) NOT NULL,
    is_free_parking BOOLEAN,
    parking_type VARCHAR(255),
-   location_guide_text VARCHAR(255)
+   location_guide_text VARCHAR(255),
+   region_no BIGINT NOT NULL
 );
 
 drop table if exists IMAGE CASCADE;
@@ -58,4 +59,12 @@ CREATE TABLE ROOM_PRICE (
     price DECIMAL(10, 2) NOT NULL,
     discount_price DECIMAL(10, 2),
     is_promotional BOOLEAN NOT NULL default 0
+);
+
+DROP TABLE IF EXISTS REGION CASCADE;
+
+CREATE TABLE REGION (
+    region_no BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    country VARCHAR(100) NOT NULL
 );

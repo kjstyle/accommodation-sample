@@ -22,6 +22,8 @@ public class Accommodation {
     @Setter // 숙소정보를 가지고와서 메인이미지 path만 추가로 세팅해야해서
     private String mainImagePath; // 역정규화? 느낌으로 넣은거고.. 썸네일 등 자주 조회하는 녀석이 추가될 수 있음
 
+    private long regionId;
+
     public static Accommodation of(AccommodationEntity entity, String mainImagePath) {
         return Accommodation.builder()
                 .id(entity.getId())
@@ -32,6 +34,7 @@ public class Accommodation {
                 .parkingInfo(new ParkingInfo(entity.isFreeParking(), entity.getParkingType()))
                 .locationGuideText(entity.getLocationGuideText())
                 .mainImagePath(mainImagePath)
+                .regionId(entity.getRegionId())
                 .build();
     }
 
@@ -45,6 +48,7 @@ public class Accommodation {
                 .isFreeParking(this.parkingInfo.getIsFree())
                 .parkingType(this.parkingInfo.getParkingType())
                 .locationGuideText(this.locationGuideText)
+                .regionId(this.regionId)
                 .build();
     }
 }

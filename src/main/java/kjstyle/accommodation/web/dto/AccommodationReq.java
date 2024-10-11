@@ -2,11 +2,13 @@ package kjstyle.accommodation.web.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import kjstyle.accommodation.domain.model.GeoLocation;
-import kjstyle.accommodation.domain.model.ParkingInfo;
 import kjstyle.accommodation.domain.enums.AccommodationStatus;
 import kjstyle.accommodation.domain.enums.AccommodationType;
 import kjstyle.accommodation.domain.enums.ImageType;
+import kjstyle.accommodation.domain.model.Accommodation;
+import kjstyle.accommodation.domain.model.AccommodationImage;
+import kjstyle.accommodation.domain.model.GeoLocation;
+import kjstyle.accommodation.domain.model.ParkingInfo;
 import kjstyle.accommodation.web.validators.ValidAccommodationImage;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,11 +40,14 @@ public class AccommodationReq {
         private String locationGuideText;
 
         @NotNull
+        private Long regionId;
+
+        @NotNull
         @ValidAccommodationImage
         private List<ImageOnCreate> imageList;
 
         @Builder
-        public Create(String name, String description, GeoLocation geoLocation, AccommodationType type, ParkingInfo parkingInfo, String locationGuideText, List<ImageOnCreate> imageList) {
+        public Create(String name, String description, GeoLocation geoLocation, AccommodationType type, ParkingInfo parkingInfo, String locationGuideText, Long regionId, List<ImageOnCreate> imageList) {
             this.name = name;
             this.description = description;
             this.geoLocation = geoLocation;
@@ -51,6 +56,20 @@ public class AccommodationReq {
             this.parkingInfo = parkingInfo;
             this.locationGuideText = locationGuideText;
             this.imageList = imageList;
+            this.regionId = regionId;
+        }
+
+        public Accommodation toAccommodation() {
+            return Accommodation.builder()
+                    .name(this.name)
+                    .description(this.description)
+                    .geoLocation(this.geoLocation)
+                    .type(this.type)
+                    .status(this.status)
+                    .parkingInfo(this.parkingInfo)
+                    .locationGuideText(this.locationGuideText)
+                    .regionId(this.regionId)
+                    .build();
         }
     }
 
@@ -63,6 +82,13 @@ public class AccommodationReq {
         public ImageOnCreate(ImageType imageType, String path) {
             this.imageType = imageType;
             this.path = path;
+        }
+
+        public AccommodationImage toAccommodationImage() {
+            return AccommodationImage.builder()
+                    .imageType(this.imageType)
+                    .path(this.path)
+                    .build();
         }
     }
 }

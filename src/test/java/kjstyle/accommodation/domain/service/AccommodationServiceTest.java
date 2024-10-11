@@ -35,20 +35,30 @@ class AccommodationServiceTest extends BaseRedisTest {
                 .geoLocation(new GeoLocation(37.39716397544742, 126.93087253698494))
                 .parkingInfo(new ParkingInfo(true, ParkingType.MACHINE))
                 .description("안양 최고의 호텔")
+                .regionId(7L)
                 .build();
+
         Accommodation saved = accommodationService.create(accommodation, Arrays.asList(
                 AccommodationImage.builder().imageType(ImageType.MAIN).path("/img/1.jpg").build()
                 ,AccommodationImage.builder().imageType(ImageType.DETAIL).path("/img/2.jpg").build()
                 ,AccommodationImage.builder().imageType(ImageType.THUMBNAIL).path("/img/3.jpg").build()
         ));
+
         assertThat(saved).isNotNull();
     }
 
     @Test
     void 숙소조회_캐시_잘_걸리나_테스트() {
-        // 서비스 메소드가 호출되지 않았으면 캐시도 아직 안구워졌어야함.
+        // 키를 evict하고
+        cacheManager.getCache("accommodation").evict(1L);
+
+        // 1인 키는 레디스에서 조회하면 당근 없을거고
         assertThat(cacheManager.getCache("accommodation").get(1L)).isNull();
+
+        // 호출될때 캐시에 구워질테고
         accommodationService.findById(1L);
+
+        // 호출된 다음 캐시를 조회해보면 해당키로 조회가 되면 성공
         assertThat(cacheManager.getCache("accommodation").get(1L)).isNotNull();
     }
 }

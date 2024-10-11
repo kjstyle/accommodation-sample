@@ -47,4 +47,7 @@ public class AccommodationEntity {
     private ParkingType parkingType;
 
     private String locationGuideText;
+
+    @Column(name = "region_no", nullable = false)
+    private Long regionId;
 }

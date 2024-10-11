@@ -34,6 +34,7 @@ class AccommodationRepositoryTest extends BaseJpaTest {
                 .parkingType(ParkingType.MACHINE)
                 .description("안양 최고의 호텔")
                 .isFreeParking(true)
+                .regionId(9L)
                 .build();
 
         AccommodationEntity saved = accommodationRepository.save(accommodationEntity);

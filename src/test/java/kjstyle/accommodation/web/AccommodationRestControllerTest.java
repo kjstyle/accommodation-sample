@@ -57,6 +57,7 @@ class AccommodationRestControllerTest extends BaseMockMvcTest {
                     .geoLocation(new GeoLocation(37.39716397544742, 126.93087253698494))
                     .parkingInfo(new ParkingInfo(true, ParkingType.MACHINE))
                     .description("안양 최고의 호텔")
+                    .regionId(7L)
                     .imageList(Arrays.asList(
                             AccommodationReq.ImageOnCreate.builder().imageType(ImageType.MAIN).path("/img/1.jpg").build()
                             ,AccommodationReq.ImageOnCreate.builder().imageType(ImageType.THUMBNAIL).path("/img/2.jpg").build()
@@ -83,6 +84,7 @@ class AccommodationRestControllerTest extends BaseMockMvcTest {
                         .geoLocation(new GeoLocation(37.39716397544742, 126.93087253698494))
                         .parkingInfo(new ParkingInfo(true, ParkingType.MACHINE))
                         .description("안양 최고의 호텔")
+                        .regionId(7L)
                         .imageList(Arrays.asList(
                                 AccommodationReq.ImageOnCreate.builder().imageType(ImageType.MAIN).path("/img/1.jpg").build()
                                 ,AccommodationReq.ImageOnCreate.builder().imageType(ImageType.THUMBNAIL).path("/img/2.jpg").build()
@@ -108,6 +110,7 @@ class AccommodationRestControllerTest extends BaseMockMvcTest {
                         .geoLocation(new GeoLocation(37.39716397544742, 126.93087253698494))
                         .parkingInfo(new ParkingInfo(true, ParkingType.MACHINE))
                         .description("안양 최고의 호텔")
+                        .regionId(7L)
                         .imageList(Arrays.asList(
                                 AccommodationReq.ImageOnCreate.builder().path("/img/1.jpg").build()
                                 ,AccommodationReq.ImageOnCreate.builder().imageType(ImageType.THUMBNAIL).path("/img/2.jpg").build()

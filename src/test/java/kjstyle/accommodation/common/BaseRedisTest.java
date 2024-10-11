@@ -11,7 +11,8 @@ public abstract class BaseRedisTest extends BaseTest {
     static {
         REDIS_CONTAINER = new GenericContainer<>(REDIS_IMAGE)
                 .withExposedPorts(6379)
-                .withReuse(true); // withReuse(true) 옵션을 설정하면, 테스트 컨테이너가 한 번 시작된 후 재사용될 수 있음을 의미함. 동일한 컨테이너를 계속 사용하기 때문에, 테스트가 매번 새 컨테이너를 시작하는 오버헤드를 줄일 수 있음
+                //.withReuse(true) // withReuse(true) 옵션을 설정하면, 테스트 컨테이너가 한 번 시작된 후 재사용될 수 있음을 의미함. 동일한 컨테이너를 계속 사용하기 때문에, 테스트가 매번 새 컨테이너를 시작하는 오버헤드를 줄일 수 있음
+        ;
         REDIS_CONTAINER.start();
     }
 

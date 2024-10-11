@@ -2,12 +2,15 @@ package kjstyle.accommodation.web;
 
 import jakarta.validation.Valid;
 import kjstyle.accommodation.domain.model.Accommodation;
+import kjstyle.accommodation.domain.model.AccommodationImage;
 import kjstyle.accommodation.domain.service.AccommodationService;
 import kjstyle.accommodation.web.common.BaseApiController;
 import kjstyle.accommodation.web.dto.AccommodationReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -23,7 +26,7 @@ public class AccommodationRestController extends BaseApiController {
 
     @PostMapping("/accommodation")
     public Accommodation createAccommodation(@RequestBody @Valid AccommodationReq.Create accommodationReqCreate) {
-        log.info("{}",accommodationReqCreate);
-        return null;
+        List<AccommodationImage> imageList = accommodationReqCreate.getImageList().stream().map(AccommodationReq.ImageOnCreate::toAccommodationImage).toList();
+        return accommodationService.create(accommodationReqCreate.toAccommodation(), imageList);
     }
 }
