@@ -1,7 +1,7 @@
 package kjstyle.accommodation.web.dto;
 
 import kjstyle.accommodation.domain.enums.ImageType;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -15,7 +15,7 @@ public class AccommodationImageRes {
         private ImageType imageType;
         private String path;
 
-        public static Upload from(ImageEntity entity) {
+        public static Upload from(AccommodationImageEntity entity) {
             return new Upload(entity.getId(), entity.getImageType(), entity.getPath());
         }
     }

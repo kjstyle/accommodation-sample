@@ -5,10 +5,10 @@ import kjstyle.accommodation.domain.exceptions.NotFoundAccommodationException;
 import kjstyle.accommodation.domain.exceptions.NotFoundImageException;
 import kjstyle.accommodation.domain.model.Accommodation;
 import kjstyle.accommodation.domain.model.AccommodationImage;
+import kjstyle.accommodation.domain.repository.AccommodationImageRepository;
 import kjstyle.accommodation.domain.repository.AccommodationRepository;
-import kjstyle.accommodation.domain.repository.ImageRepository;
 import kjstyle.accommodation.domain.repository.entities.AccommodationEntity;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
@@ -27,7 +27,7 @@ import java.util.stream.StreamSupport;
 public class AccommodationService {
 
     private final AccommodationRepository accommodationRepository;
-    private final ImageRepository imageRepository;
+    private final AccommodationImageRepository accommodationImageRepository;
 
     public static final String DEFAULT_MAIN_IMG = "/img/default_main_img.jpg";
 
@@ -35,8 +35,8 @@ public class AccommodationService {
     @Cacheable(cacheNames = "accommodation", key = "#id", cacheManager = "accommodationCacheManager", condition = "#id > 0")
     public Accommodation findById(long id) {
         AccommodationEntity accommodationEntity = accommodationRepository.findById(id).orElseThrow(NotFoundAccommodationException::new);
-        ImageEntity mainImageEntity = imageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);
-        return Accommodation.of(accommodationEntity, mainImageEntity.getPath());
+        AccommodationImageEntity mainAccommodationImageEntity = accommodationImageRepository.findByAccommodationIdAndImageType(id, ImageType.MAIN).orElseThrow(NotFoundImageException::new);
+        return Accommodation.of(accommodationEntity, mainAccommodationImageEntity.getPath());
     }
 
     @Transactional(readOnly = true)
@@ -46,9 +46,9 @@ public class AccommodationService {
                 .map(AccommodationEntity::getId)
                 .toList();
 
-        Map<Long, String> mainImageMap = imageRepository.findAllByAccommodationIdInAndImageType(accommodationIdList, ImageType.MAIN)
+        Map<Long, String> mainImageMap = accommodationImageRepository.findAllByAccommodationIdInAndImageType(accommodationIdList, ImageType.MAIN)
                 .stream()
-                .collect(Collectors.toMap(ImageEntity::getAccommodationId, ImageEntity::getPath));
+                .collect(Collectors.toMap(AccommodationImageEntity::getAccommodationId, AccommodationImageEntity::getPath));
 
         return accommodationEntityList.stream()
                 .map(accommodationEntity -> {
@@ -63,15 +63,15 @@ public class AccommodationService {
         AccommodationEntity savedAccommodationEntity = accommodationRepository.save(accommodation.toSaveEntity());
         long newAccommodationId = savedAccommodationEntity.getId();
 
-        List<ImageEntity> imageEntities = imageList.stream()
+        List<AccommodationImageEntity> imageEntities = imageList.stream()
                 .map(accommodationImage -> accommodationImage.toSaveEntity(newAccommodationId))
                 .toList();
 
         // TODO : 화면에서 이미지를 미리 등록하고, 이미지 key 리스트만 받고, 등록된 숙소 key만 update해주면 되지 싶은데.. 아래코드가 맘에 안든다...
-        Iterable<ImageEntity> savedImageEntities = imageRepository.saveAll(imageEntities);
+        Iterable<AccommodationImageEntity> savedImageEntities = accommodationImageRepository.saveAll(imageEntities);
         String mainImagePath = StreamSupport.stream(savedImageEntities.spliterator(), false)
                 .filter(imageEntity -> imageEntity.getImageType().equals(ImageType.MAIN))
-                .map(ImageEntity::getPath)
+                .map(AccommodationImageEntity::getPath)
                 .findFirst().orElse(DEFAULT_MAIN_IMG);
 
         return Accommodation.of(savedAccommodationEntity, mainImagePath);

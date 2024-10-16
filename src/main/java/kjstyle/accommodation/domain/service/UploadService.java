@@ -1,8 +1,8 @@
 package kjstyle.accommodation.domain.service;
 
 import kjstyle.accommodation.domain.enums.ImageType;
-import kjstyle.accommodation.domain.repository.ImageRepository;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
+import kjstyle.accommodation.domain.repository.AccommodationImageRepository;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UploadService {
 
-    private final ImageRepository imageRepository;
+    private final AccommodationImageRepository accommodationImageRepository;
 
-    public ImageEntity uploadAccommodationImage(ImageType imageType, MultipartFile imageFile) throws IOException {
+    public AccommodationImageEntity uploadAccommodationImage(ImageType imageType, MultipartFile imageFile) throws IOException {
         final String fileName = UUID.randomUUID().toString() + "_" + imageFile.getOriginalFilename();
         final String fileDir = "tmpfile/accommodation/" + imageType.toString();
         final String filePath = fileDir + "/" + fileName;
@@ -32,11 +32,11 @@ public class UploadService {
         File destFile = new File(filePath);
         imageFile.transferTo(destFile);
 
-        ImageEntity imageEntity = ImageEntity.builder()
+        AccommodationImageEntity accommodationImageEntity = AccommodationImageEntity.builder()
                 .imageType(imageType)
                 .path(filePath)
                 .build();
 
-        return imageRepository.save(imageEntity);
+        return accommodationImageRepository.save(accommodationImageEntity);
     }
 }

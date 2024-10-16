@@ -1,7 +1,7 @@
 package kjstyle.accommodation.domain.model;
 
 import kjstyle.accommodation.domain.enums.ImageType;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,8 +15,8 @@ public class AccommodationImage {
     private String path;
     private Long accommodationId;
 
-    public ImageEntity toSaveEntity(long accommodationId) {
-        return ImageEntity.builder()
+    public AccommodationImageEntity toSaveEntity(long accommodationId) {
+        return AccommodationImageEntity.builder()
                 .accommodationId(accommodationId)
                 .imageType(this.imageType)
                 .path(this.path)

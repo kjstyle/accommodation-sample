@@ -2,8 +2,8 @@ package kjstyle.accommodation.domain;
 
 import kjstyle.accommodation.common.BaseTest;
 import kjstyle.accommodation.domain.enums.ImageType;
-import kjstyle.accommodation.domain.repository.ImageRepository;
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
+import kjstyle.accommodation.domain.repository.AccommodationImageRepository;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
 import kjstyle.accommodation.domain.service.UploadService;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ class UploadServiceTest extends BaseTest {
     private UploadService uploadService;
 
     @MockBean
-    private ImageRepository imageRepository;
+    private AccommodationImageRepository accommodationImageRepository;
 
     private static final String TEMP_PATH = "tmpfile/accommodation/MAIN";
 
@@ -35,22 +35,22 @@ class UploadServiceTest extends BaseTest {
     void 이미지_업로드_테스트() throws IOException {
 
         MockMultipartFile mockMultipartFile = new MockMultipartFile("image", "test-image.jpg", MediaType.IMAGE_JPEG_VALUE, "Test image content".getBytes());
-        ImageEntity mockImageEntity = ImageEntity.builder()
+        AccommodationImageEntity mockAccommodationImageEntity = AccommodationImageEntity.builder()
                 .id(123L)
                 .imageType(ImageType.MAIN)
                 .path(TEMP_PATH+"/12345.jpg")
                 .build();
 
-        when(imageRepository.save(any(ImageEntity.class))).thenReturn(mockImageEntity);
+        when(accommodationImageRepository.save(any(AccommodationImageEntity.class))).thenReturn(mockAccommodationImageEntity);
 
-        ImageEntity savedImageEntity = uploadService.uploadAccommodationImage(ImageType.MAIN, mockMultipartFile);
+        AccommodationImageEntity savedAccommodationImageEntity = uploadService.uploadAccommodationImage(ImageType.MAIN, mockMultipartFile);
 
-        assertThat(savedImageEntity).isNotNull();
-        assertThat(savedImageEntity.getImageType()).isEqualTo(ImageType.MAIN);
-        assertThat(savedImageEntity.getPath()).isEqualTo(TEMP_PATH + "/12345.jpg");
-        assertThat(savedImageEntity.getId()).isEqualTo(123L);
+        assertThat(savedAccommodationImageEntity).isNotNull();
+        assertThat(savedAccommodationImageEntity.getImageType()).isEqualTo(ImageType.MAIN);
+        assertThat(savedAccommodationImageEntity.getPath()).isEqualTo(TEMP_PATH + "/12345.jpg");
+        assertThat(savedAccommodationImageEntity.getId()).isEqualTo(123L);
 
-        verify(imageRepository, times(1)).save(any(ImageEntity.class));
+        verify(accommodationImageRepository, times(1)).save(any(AccommodationImageEntity.class));
     }
 
 

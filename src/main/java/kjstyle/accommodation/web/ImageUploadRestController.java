@@ -1,8 +1,8 @@
 package kjstyle.accommodation.web;
 
-import kjstyle.accommodation.domain.repository.entities.ImageEntity;
-import kjstyle.accommodation.domain.service.UploadService;
 import kjstyle.accommodation.domain.enums.ImageType;
+import kjstyle.accommodation.domain.repository.entities.AccommodationImageEntity;
+import kjstyle.accommodation.domain.service.UploadService;
 import kjstyle.accommodation.web.common.BaseApiController;
 import kjstyle.accommodation.web.dto.AccommodationImageRes;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +29,8 @@ public class ImageUploadRestController extends BaseApiController {
         if (imageFile.isEmpty()) {
             throw new IllegalArgumentException("파일이 비어있습니다.");
         }
-        ImageEntity imageEntity = uploadService.uploadAccommodationImage(imageType, imageFile);
+        AccommodationImageEntity accommodationImageEntity = uploadService.uploadAccommodationImage(imageType, imageFile);
 
-        return AccommodationImageRes.Upload.from(imageEntity);
+        return AccommodationImageRes.Upload.from(accommodationImageEntity);
     }
 }
